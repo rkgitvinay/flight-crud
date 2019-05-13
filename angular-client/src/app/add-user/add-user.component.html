@@ -1,0 +1,41 @@
+<form [formGroup]="userForm">
+    <div class="form-body">
+        <h3 class="card-title">Person Info</h3>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">User ID</label>
+                    <input type="text" maxlength="20" (change)="checkUserId()" formControlName="userId" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.userId.errors }" />
+                    <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
+                        <div *ngIf="f.userId.errors.required">User ID is required</div>
+                    </div>
+                    <div *ngIf="userIdExistError" class="invalid-feedback">
+                        <div>User ID is already taken</div>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Name</label>
+                    <input type="text" maxlength="50" formControlName="userName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                    <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                        <div *ngIf="f.userName.errors.required">Username is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+
+        
+                        
+
+    </div>
+    <div class="form-actions">
+        <button *ngIf='!isUserUpdate' type="button" (click)="onSubmit()" class="btn btn-success"> <i class="fa fa-check"></i> Save </button>
+        <button *ngIf='isUserUpdate' type="button" (click)="onUpdate()" class="btn btn-success"> <i class="fa fa-check"></i> Update </button>
+    </div>                           
+</form>

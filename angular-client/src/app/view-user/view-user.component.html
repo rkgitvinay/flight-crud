@@ -1,0 +1,41 @@
+<table id="customers">    
+    <tr><th colspan="8"><a routerLink="/add">Create User</a></th></tr>
+    <tr>  
+      <th>User Id</th>
+      <th>Title</th>    
+      <th>Name</th>
+      <th>Email</th>
+      <th>mobile</th>
+      <th>Remark</th>
+      <th>Created At</th>
+    </tr>
+    <tr>      
+      <td>{{userDetails.userId}}</td> 
+      <td>{{userDetails.title}}</td>           
+      <td>{{userDetails.firstName}} {{userDetails.middleName}} {{userDetails.lastName}}</td>            
+      <td>{{userDetails.emailId}}</td>      
+      <td>{{userDetails.mobileNo}}</td>      
+      <td>{{userDetails.remark}}</td>      
+      <td>{{userDetails.createdOn | date : 'dd-MM-yy'}}</td>   
+    </tr> 
+    
+    <tr>  
+        <th>agencyId Id</th>
+        <th>branch Id</th>    
+        <th>lastLoginDate</th>
+        <th>roleId</th>
+        <th>userType</th>
+        <th>status</th>
+        <th>saltkey</th>
+      </tr>
+      <tr>      
+        <td>{{userDetails.agencyId}}</td> 
+        <td>{{userDetails.branchId}}</td>           
+        <td>{{userDetails.lastLoginDate}}</td>            
+        <td>{{userDetails.roleId}}</td>      
+        <td>{{userDetails.userType}}</td>      
+        <td>{{userDetails.status}}</td>      
+        <td>{{userDetails.saltkey}}</td>   
+      </tr>
+      <tr><th colspan="8"><a routerLink="/list">Back to list</a></th></tr>
+</table>

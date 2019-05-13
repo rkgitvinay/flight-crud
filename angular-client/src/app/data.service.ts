@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
-const apiUrl = 'http://localhost:3000/';
+const apiUrl = 'https://b2bapi.lccportal.com/api/User/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -17,7 +17,11 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getResult() {
-		return this.http.get(apiUrl + 'getResult', httpOptions);
-	}
+  getUserList() {
+		return this.http.get(apiUrl + 'GetUsers', httpOptions);
+  }
+  
+  getUserDetails(userId) {
+    return this.http.get(apiUrl + 'GetUserByUserId?UserId=' + userId, httpOptions);
+  }
 }

@@ -1,0 +1,51 @@
+<table id="customers">
+    
+    <tr><th colspan="8"><a routerLink="/add">Create User</a></th></tr>
+    <tr>  
+      <th>User Id</th>
+      <th>Title</th>    
+      <th>Name</th>
+      <th>Email</th>
+      <th>mobile</th>
+      <th>Remark</th>
+      <th>Created At</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let item of userList;">      
+      <td>{{item.userId}}</td> 
+      <td>{{item.title}}</td>           
+      <td>{{item.firstName}} {{item.middleName}} {{item.lastName}}</td>            
+      <td>{{item.emailId}}</td>      
+      <td>{{item.mobileNo}}</td>      
+      <td>{{item.remark}}</td>      
+      <td>{{item.createdOn | date : 'dd-MM-yy'}}</td>   
+      <th>
+        <a routerLink="/view/{{item.userId}}">View</a>        
+      </th>
+    </tr>   
+</table>
+
+<!-- agencyId: 0
+branchId: 0
+createdBy: 0
+createdOn: "2019-02-26T23:54:52.07"
+emailId: "da"
+firstName: "asdad"
+isCompnayUser: false
+lastLoginDate: "2019-02-26T23:54:52.07"
+lastName: "asd"
+middleName: "asd"
+mobileNo: "asd"
+modifiedBy: 0
+modifiedOn: "2019-02-26T23:54:52.07"
+oldPassword: "gg"
+password: "asd"
+phoneNo: "asd"
+remark: "0"
+roleId: 6
+saltkey: "0"
+status: false
+title: "asd"
+userGuId: "00000000-0000-0000-0000-000000000000"
+userId: 4
+userType: 0 -->
