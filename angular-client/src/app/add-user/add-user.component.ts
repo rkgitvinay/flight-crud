@@ -7,23 +7,32 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 })
 export class AddUserComponent implements OnInit {
   public userForm: FormGroup;
+  public submitted: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
   ) { 
     this.userForm = this.createuserForm(formBuilder);
   }
 
+  onSubmit() {    
+    this.submitted = true;		
+		if (this.userForm.invalid) {
+			console.log("Plz fill all the mandatory fields first");
+			return;
+		} else {
+      console.log(this.userForm.value);
+    }
+  }
+
+  get f() {
+		return this.userForm.controls;
+	}
+
+
   createuserForm(formBuilder: FormBuilder) {
-		return formBuilder.group({
-			state: [null, Validators.required],
-			city: [null, Validators.required],
-			userId: [null, Validators.required],
-			userName: [null, Validators.required],
-			roleId: [null, Validators.required],
-			address: [null, Validators.required],
-			phone: [null, Validators.required],
-			email: [null, Validators.email],
-			image: ['']			
+		return formBuilder.group({			
+			UserId: [null],
+			Title: [null],					
 		});
 	}
 
