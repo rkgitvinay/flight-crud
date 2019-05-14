@@ -24,4 +24,8 @@ export class DataService {
   getUserDetails(userId) {
     return this.http.get(apiUrl + 'GetUserByUserId?UserId=' + userId, httpOptions);
   }
+
+  createUser(userFormData) {
+    return this.http.post(apiUrl + 'AddUser', userFormData);
+  } 
 }

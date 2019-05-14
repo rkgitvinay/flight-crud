@@ -1,27 +1,276 @@
 <form [formGroup]="userForm">
     <div class="form-body">
-        <h3 class="card-title">Add User</h3>
+        <h3 class="card-title">Add New User</h3>
         <hr>
       <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label">User ID</label>
-                    <input type="text" maxlength="20" formControlName="userId" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.userId.errors }" />
-                    <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
-                        <div *ngIf="f.userId.errors.required">User ID is required</div>
+                    <input type="text" maxlength="20" (keypress)="_keyPressInt($event)" formControlName="UserId" class="form-control"
+                         />
+                    
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Title</label>
+                    <input type="text" maxlength="50" (keypress)="_keyPressString($event)" formControlName="Title" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.Title.errors }" />
+                    <div *ngIf="submitted && f.Title.errors" class="invalid-feedback">
+                        <div *ngIf="f.Title.errors.required">Title is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <input type="text" maxlength="20" (keypress)="_keyPressString($event)" formControlName="FirstName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" />
+                    <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.FirstName.errors.required">FirstName is required</div>
                     </div>
                 </div>
             </div>  
 
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label">Name</label>
-                    <input type="text" maxlength="50" formControlName="userName" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
-                    <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
-                        <div *ngIf="f.userName.errors.required">Username is required</div>
+                    <label class="control-label">Middle Name</label>
+                    <input type="text" maxlength="50" (keypress)="_keyPressString($event)" formControlName="MiddleName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.MiddleName.errors }" />
+                    <div *ngIf="submitted && f.MiddleName.errors" class="invalid-feedback">
+                        <div *ngIf="f.MiddleName.errors.required">Middle Name is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <input type="text" maxlength="20" (keypress)="_keyPressString($event)" formControlName="LastName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" />
+                    <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.LastName.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Mobile No</label>
+                    <input type="text" maxlength="50" (keypress)="_keyPressInt($event)" formControlName="MobileNo" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.MobileNo.errors }" />
+                    <div *ngIf="submitted && f.MobileNo.errors" class="invalid-feedback">
+                        <div *ngIf="f.MobileNo.errors.required">MobileNo is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">PhoneNo</label>
+                    <input type="text" maxlength="20" (keypress)="_keyPressInt($event)" formControlName="PhoneNo" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.PhoneNo.errors }" />
+                    <div *ngIf="submitted && f.PhoneNo.errors" class="invalid-feedback">
+                        <div *ngIf="f.PhoneNo.errors.required">Phone No is required</div>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Email Id</label>
+                    <input type="text" maxlength="50" formControlName="EmailId" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.EmailId.errors }" />
+                    <div *ngIf="submitted && f.EmailId.errors" class="invalid-feedback">
+                        <div *ngIf="f.EmailId.errors.required">Email Id is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Password</label>
+                    <input type="password" maxlength="20" formControlName="Password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
+                    <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                        <div *ngIf="f.Password.errors.required">Password is required</div>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">RoleId</label>
+                    <input type="text" maxlength="50" (keypress)="_keyPressInt($event)" formControlName="RoleId" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.RoleId.errors }" />
+                    <div *ngIf="submitted && f.RoleId.errors" class="invalid-feedback">
+                        <div *ngIf="f.RoleId.errors.required">RoleId is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Agency Id</label>
+                    <input type="text" maxlength="20" (keypress)="_keyPressInt($event)" formControlName="AgencyId" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.AgencyId.errors }" />
+                    <div *ngIf="submitted && f.AgencyId.errors" class="invalid-feedback">
+                        <div *ngIf="f.AgencyId.errors.required">Agency ID is required</div>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Branch Id</label>
+                    <input type="text" maxlength="50" (keypress)="_keyPressInt($event)" formControlName="BranchId" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.BranchId.errors }" />
+                    <div *ngIf="submitted && f.BranchId.errors" class="invalid-feedback">
+                        <div *ngIf="f.BranchId.errors.required">Branch Id is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Status</label>
+                    <input type="text" maxlength="20" formControlName="Status" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.Status.errors }" />
+                    <div *ngIf="submitted && f.Status.errors" class="invalid-feedback">
+                        <div *ngIf="f.Status.errors.required">Status is required</div>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Last Login Date</label>
+                    <input type="text" maxlength="50" formControlName="LastLoginDate" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.LastLoginDate.errors }" />                    
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Remark</label>
+                    <input type="text" maxlength="20" formControlName="Remark" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.Remark.errors }" />
+                    <div *ngIf="submitted && f.Remark.errors" class="invalid-feedback">
+                        <div *ngIf="f.Remark.errors.required">Remark is required</div>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Is Compnay User</label>
+                    <input type="text" maxlength="50" formControlName="IsCompnayUser" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.IsCompnayUser.errors }" />
+                    <div *ngIf="submitted && f.IsCompnayUser.errors" class="invalid-feedback">
+                        <div *ngIf="f.IsCompnayUser.errors.required">Is Compnay User is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">User Type</label>
+                    <input type="text" maxlength="20" (keypress)="_keyPressInt($event)" formControlName="UserType" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.UserType.errors }" />
+                    <div *ngIf="submitted && f.UserType.errors" class="invalid-feedback">
+                        <div *ngIf="f.UserType.errors.required">User Type is required</div>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">OldPassword</label>
+                    <input type="password" maxlength="50" formControlName="OldPassword" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.OldPassword.errors }" />
+                    <div *ngIf="submitted && f.OldPassword.errors" class="invalid-feedback">
+                        <div *ngIf="f.OldPassword.errors.required">Old Password is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Created On</label>
+                    <input type="text" maxlength="20" formControlName="CreatedOn" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.CreatedOn.errors }" />                   
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Created By</label>
+                    <input type="text" maxlength="50" (keypress)="_keyPressInt($event)" formControlName="CreatedBy" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.CreatedBy.errors }" />
+                    <div *ngIf="submitted && f.CreatedBy.errors" class="invalid-feedback">
+                        <div *ngIf="f.CreatedBy.errors.required">Created By is required</div>
+                    </div>
+                </div>
+            </div>                                 
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Modified On</label>
+                    <input type="text" maxlength="20" formControlName="ModifiedOn" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.ModifiedOn.errors }" />                    
+                </div>
+            </div>  
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Modified By</label>
+                    <input type="text" maxlength="50" (keypress)="_keyPressInt($event)" formControlName="ModifiedBy" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.ModifiedBy.errors }" />
+                    <div *ngIf="submitted && f.ModifiedBy.errors" class="invalid-feedback">
+                        <div *ngIf="f.ModifiedBy.errors.required">ModifiedBy is required</div>
                     </div>
                 </div>
             </div>                                 
